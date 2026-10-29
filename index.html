@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05070b">
+  <title>888 DIGITAL FACTORY | REELS 2050</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body><header class="topbar">
+  <div class="brand">888<span>DIGITAL FACTORY</span></div>
+  <div class="status"><i></i> SYSTEM ONLINE</div>
+</header><main class="reels">  <section class="reel" id="code">
+    <div class="visual visual-code">
+      <div class="scan"></div>
+      <div class="visual-label">01 // SOURCE CONTROL</div>
+      <div class="big-icon">&lt;/&gt;</div>
+      <div class="terminal">
+        <p>root@888factory:~$ git push origin main</p>
+        <p class="green">✓ Changes uploaded successfully</p>
+        <p class="green">✓ Pipeline triggered</p>
+        <p class="cyan">Initializing CI/CD...</p>
+      </div>
+    </div>
+    <div class="content">
+      <span class="tag">01 / CODE</span>
+      <h1>FROM CODE<br>TO PRODUCTION</h1>
+      <p>Todo comienza con un commit. GitHub recibe el código y activa la automatización.</p>
+      <div class="metrics"><span>GITHUB</span><span>GIT</span><span>WEBHOOK</span></div>
+    </div>
+  </section>  <section class="reel" id="build">
+    <div class="visual visual-build">
+      <div class="visual-label">02 // CONTAINER ENGINE</div>
+      <div class="big-icon">⬡</div>
+      <div class="terminal">
+        <p>$ docker build -t 888-app .</p>
+        <p class="green">✓ Dockerfile detected</p>
+        <p class="green">✓ Image created</p>
+        <p class="cyan">Pushing image to GHCR...</p>
+      </div>
+    </div>
+    <div class="content">
+      <span class="tag">02 / BUILD</span>
+      <h1>BUILD THE<br>FUTURE</h1>
+      <p>Docker empaqueta la aplicación en una imagen reproducible y lista para desplegar.</p>
+      <div class="metrics"><span>DOCKER</span><span>GHCR</span><span>IMAGE</span></div>
+    </div>
+  </section>  <section class="reel" id="security">
+    <div class="visual visual-security">
+      <div class="visual-label">03 // SECURITY OPERATIONS</div>
+      <div class="big-icon">◈</div>
+      <div class="terminal">
+        <p>$ trivy image 888-app</p>
+        <p class="green">✓ Vulnerability scan complete</p>
+        <p class="green">✓ IaC security checked</p>
+        <p class="cyan">Security gate: PASSED</p>
+      </div>
+    </div>
+    <div class="content">
+      <span class="tag">03 / SECURITY</span>
+      <h1>DEFEND<br>THE PIPELINE</h1>
+      <p>Trivy y Checkov analizan vulnerabilidades e infraestructura como código antes del despliegue.</p>
+      <div class="metrics"><span>TRIVY</span><span>CHECKOV</span><span>DEVSECOPS</span></div>
+    </div>
+  </section>  <section class="reel" id="deploy">
+    <div class="visual visual-deploy">
+      <div class="visual-label">04 // CLOUD DEPLOYMENT</div>
+      <div class="big-icon">☁</div>
+      <div class="terminal">
+        <p>$ terraform plan</p>
+        <p class="green">✓ Infrastructure validated</p>
+        <p>$ ansible-playbook deploy.yml</p>
+        <p class="cyan">Deployment completed</p>
+      </div>
+    </div>
+    <div class="content">
+      <span class="tag">04 / DEPLOY</span>
+      <h1>DEPLOY<br>WITHOUT LIMITS</h1>
+      <p>Terraform provisiona infraestructura. Ansible configura los servicios y automatiza el despliegue.</p>
+      <div class="metrics"><span>TERRAFORM</span><span>ANSIBLE</span><span>CLOUD</span></div>
+    </div>
+  </section>  <section class="reel" id="monitoring">
+    <div class="visual visual-monitor">
+      <div class="visual-label">05 // OBSERVABILITY</div>
+      <div class="big-icon">◉</div>
+      <div class="terminal">
+        <p>root@monitoring:~$ systemctl status app</p>
+        <p class="green">● Application: ACTIVE</p>
+        <p class="green">● Monitoring: ACTIVE</p>
+        <p class="cyan">All systems operational</p>
+      </div>
+    </div>
+    <div class="content">
+      <span class="tag">05 / OBSERVABILITY</span>
+      <h1>WATCH<br>EVERYTHING</h1>
+      <p>Observabilidad, métricas, logs y alertas para mantener los servicios bajo control.</p>
+      <div class="metrics"><span>PROMETHEUS</span><span>GRAFANA</span><span>LOGS</span></div>
+    </div>
+  </section></main><nav class="bottom-nav">
+  <a href="#code">CODE</a>
+  <a href="#build">BUILD</a>
+  <a href="#security">SECURITY</a>
+  <a href="#deploy">DEPLOY</a>
+  <a href="#monitoring">MONITOR</a>
+</nav><script src="app.js"></script></body>
+</html>
