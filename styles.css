@@ -331,3 +331,27 @@ font-size: 8px;
 letter-spacing: 1px;
 }
 }
+/* ELIMINAR LETRAS BLANCAS SOBRE LAS IMÁGENES */
+.scene:before {
+    content: none !important;
+    display: none !important;
+}
+
+/* CONSERVAR LOS FLUJOS ANIMADOS */
+.motionprocess {
+    display: flex !important;
+}
+
+/* CONSERVAR LOS DIAGRAMAS INTERACTIVOS */
+.archboard.open {
+    display: block;
+}
+
+/* MANTENER LAS ANIMACIONES */
+.motionstep {
+    animation: stepGlow 4.8s infinite;
+}
+
+.motionconnector {
+    animation: connector 1s infinite alternate;
+}
