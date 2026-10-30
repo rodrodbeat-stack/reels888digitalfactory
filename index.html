@@ -41,7 +41,131 @@
 
 /* Real AI image studio connected through a secure backend */
 .imgstudio{margin:0 0 16px;padding:15px;border:1px solid #35e8ff55;border-radius:18px;background:linear-gradient(145deg,#0b1826,#080d17);box-shadow:0 10px 30px #0004}.imgstudio h2{margin:0 0 5px;font-size:1rem}.imgstudio .sub{font-size:.75rem;color:var(--muted);margin:0 0 12px}.promptrow{display:grid;grid-template-columns:1fr auto;gap:8px}.promptrow textarea{width:100%;min-height:76px;resize:vertical;background:#030a12;color:var(--text);border:1px solid #263e53;border-radius:12px;padding:11px;font: .8rem/1.5 inherit}.imgcontrols{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0}.imgcontrols select{background:#0b1724;color:var(--text);border:1px solid #263e53;border-radius:10px;padding:8px;flex:1;min-width:140px}.imgcontrols button{background:#07303a;border-color:#35e8ff;color:#35e8ff}.imgresult{display:none;margin-top:12px;border:1px solid #263e53;border-radius:14px;padding:10px;background:#030811}.imgresult.show{display:block}.imgresult canvas{width:100%;display:block;border-radius:9px;max-height:420px;object-fit:contain;background:#050910}.imgresult .resultbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:9px;font-size:.7rem;color:var(--muted)}.imgresult a{display:inline-block;text-decoration:none;border:1px solid #a4ff75;color:#a4ff75;border-radius:999px;padding:8px 12px;font-weight:800}.genstatus{min-height:16px;font-size:.7rem;color:#a4ff75;margin-top:7px}
-.publishbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#091522}.publishbar span{font-size:10px;color:var(--muted)}.publishbtn{background:linear-gradient(100deg,#35e8ff,#a4ff75);color:#061018;border:0;border-radius:9px;padding:11px 15px;font-weight:900;cursor:pointer}.publishmodal{display:none;position:fixed;inset:0;z-index:9999;background:#02060de8;backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:16px}.publishmodal.open{display:flex}.publishbox{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0b1420;border:1px solid #35e8ff66;border-radius:16px;padding:20px;box-shadow:0 0 35px #35e8ff22}.publishbox h2{margin:0 0 14px;color:#35e8ff}.publishbox input,.publishbox textarea,.publishbox select{width:100%;margin:7px 0;padding:11px;background:#050910;color:#f1f8ff;border:1px solid #213247;border-radius:8px}.publishbox textarea{min-height:80px}.publishpreview{display:flex;gap:8px;overflow:auto;margin:10px 0}.publishpreview img{width:75px;height:110px;object-fit:cover;border-radius:8px}.publishactions{display:flex;gap:8px}.publishactions button{flex:1;padding:11px;border-radius:8px;border:1px solid #35e8ff;background:#102435;color:#fff;cursor:pointer}.publishactions .submitpost{background:#a4ff75;color:#07110a;font-weight:900}.scene.uploaded{background:none!important;overflow:hidden}.uploaded-scene-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}.scene.uploaded:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#02061022,#020610aa);z-index:1}.scene.uploaded:before{z-index:2}.reel{position:relative}</style></head><body><header><div class="brand">CYBER<span>REELS</span> / SOCIAL</div><nav id="nav"><button class="active" data-cat="all">Inicio</button><button data-cat="cicd">CI/CD</button><button data-cat="deploy">Deploy</button><button data-cat="cloud">AWS / Azure</button><button data-cat="k8s">Kubernetes</button><button data-cat="security">Cybersecurity</button><button data-cat="observability">Observabilidad</button><button data-cat="automation">Terraform</button></nav></header><main><div class="layout"><aside class="side chat-side"><div class="sidehead"><h2>💬 Cyber Chat</h2><span class="live">● EN VIVO</span></div><div class="chatlog" id="chatlog"><div class="bubble"><b>@pipeline_lab</b>¿Alguien está probando despliegues Blue/Green?</div><div class="bubble"><b>@cloud_ops</b>Validando health checks antes del switch. 🚀</div><div class="bubble"><b>@k8s_lab</b>Rollout estable: 3/3 pods Ready.</div></div><div class="chatquick"><button data-chat="¿Cómo funciona un rollback?">Rollback</button><button data-chat="¿Qué revisar en un pipeline?">Pipeline</button><button data-chat="¿Qué métricas mirar?">Métricas</button></div><form class="chatform" id="chatform"><input id="chatinput" placeholder="Escribe al chat…" maxlength="180" autocomplete="off"><button type="submit">➤</button></form></aside><section class="centercol"><div class="intro"><div><div class="eyebrow">VERTICAL FEED · SWIPE / SCROLL</div><h1>Reels tecnológicos</h1><p>Desplázate hacia abajo dentro del feed para pasar al siguiente Reel.</p></div><button id="reset">↻ Volver al inicio</button></div><section class="imgstudio" aria-label="Generador de imágenes desde texto"><h2>🎨 Cyber Image Generator</h2><p class="sub">Generación real con IA: requiere iniciar el backend y configurar OPENAI_API_KEY. La clave nunca va en el navegador.</p><div class="promptrow"><textarea id="imagePrompt" placeholder="Ej: arquitectura CI/CD en AWS, pipeline animado, Kubernetes, luces cyan y verde, estilo cyberpunk…">Arquitectura CI/CD DevSecOps: Git, Build, Tests, Security Scan, Deploy a Kubernetes. Neon cyberpunk, cyan y verde.</textarea></div><div class="imgcontrols"><select id="imageStyle"><option value="architecture">Arquitectura CI/CD</option><option value="devsecops">DevSecOps</option><option value="kubernetes">Kubernetes</option><option value="cloud">Cloud AWS / Azure</option><option value="poster">Cyberpunk poster</option></select><button id="generateImage">✦ Generar imagen</button></div><div class="genstatus" id="genstatus">Listo para crear · escribe tu prompt</div><div class="imgresult" id="imgresult"><img id="generatedImage" alt="Imagen generada por IA" style="width:100%;display:block;border-radius:9px;max-height:520px;object-fit:contain;background:#050910"><div class="resultbar"><span>GENERADO POR IA · PNG</span><a id="downloadImage" download="cyberreels-image.png" href="#">⬇ Descargar PNG</a></div></div></section><div class="publishbar"><button id="openPublisher" class="publishbtn">＋ PUBLICAR FOTO / REEL</button><span>SUBE IMÁGENES · CREA TU REEL</span></div><section id="feed" aria-label="Feed vertical de reels"></section></section><aside class="side deals-side"><div class="sidehead"><h2>⚡ Ofertas relámpago</h2><span class="live">LAB DEALS</span></div><div class="deal"><div class="dealtype">⚡ FLASH · 15 MIN</div><h3>CI/CD Pipeline Kit</h3><p>Plantilla de pipeline Dev → QA → Prod con jobs build, test, Sonar y deploy.</p><span class="price">$0 demo</span><span class="oldprice">$19</span><div class="timer" data-seconds="899">14:59</div><button class="claim">Obtener recurso</button><div class="dealclaimed"></div></div><div class="deal"><div class="dealtype">⚡ FLASH · COMUNIDAD</div><h3>Kubernetes Quick Lab</h3><p>Checklist de rollout, probes, logs y rollback para practicar en laboratorio.</p><span class="price">Gratis</span><span class="oldprice">$9</span><div class="timer" data-seconds="1199">19:59</div><button class="claim">Activar oferta</button><div class="dealclaimed"></div></div><div class="deal"><div class="dealtype">⚡ BONUS</div><h3>Terraform Starter</h3><p>Guía de plan, variables por ambiente y state remoto.</p><span class="price">Gratis</span><div class="timer" data-seconds="599">09:59</div><button class="claim">Reclamar</button><div class="dealclaimed"></div></div></aside></div></main><footer class="footer"><span>CYBERREELS SOCIAL · CI/CD en movimiento</span><span>Escenarios educativos · imágenes ilustrativas</span></footer><div class="publishmodal" id="publishmodal"><form class="publishbox" id="publishform"><h2>＋ PUBLICAR REEL</h2><p>Sube una o varias fotos y conviértelas en una publicación vertical.</p><input id="postfiles" type="file" accept="image/*" multiple required><div class="publishpreview" id="publishpreview"></div><input id="posttitle" maxlength="100" placeholder="Título del reel" required><textarea id="postdesc" maxlength="500" placeholder="Descripción / detalles de implementación"></textarea><select id="postcat"><option value="cicd">CI/CD</option><option value="deploy">Deploy</option><option value="aws">AWS / Azure</option><option value="kubernetes">Kubernetes</option><option value="security">Cybersecurity</option><option value="observability">Observabilidad</option><option value="terraform">Terraform</option></select><div class="publishactions"><button type="button" id="closePublisher">Cancelar</button><button class="submitpost" type="submit">🚀 Publicar en Reels</button></div></form></div><script>
+.publishbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#091522}.publishbar span{font-size:10px;color:var(--muted)}.publishbtn{background:linear-gradient(100deg,#35e8ff,#a4ff75);color:#061018;border:0;border-radius:9px;padding:11px 15px;font-weight:900;cursor:pointer}.publishmodal{display:none;position:fixed;inset:0;z-index:9999;background:#02060de8;backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:16px}.publishmodal.open{display:flex}.publishbox{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0b1420;border:1px solid #35e8ff66;border-radius:16px;padding:20px;box-shadow:0 0 35px #35e8ff22}.publishbox h2{margin:0 0 14px;color:#35e8ff}.publishbox input,.publishbox textarea,.publishbox select{width:100%;margin:7px 0;padding:11px;background:#050910;color:#f1f8ff;border:1px solid #213247;border-radius:8px}.publishbox textarea{min-height:80px}.publishpreview{display:flex;gap:8px;overflow:auto;margin:10px 0}.publishpreview img{width:75px;height:110px;object-fit:cover;border-radius:8px}.publishactions{display:flex;gap:8px}.publishactions button{flex:1;padding:11px;border-radius:8px;border:1px solid #35e8ff;background:#102435;color:#fff;cursor:pointer}.publishactions .submitpost{background:#a4ff75;color:#07110a;font-weight:900}.scene.uploaded{background:none!important;overflow:hidden}.uploaded-scene-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}.scene.uploaded:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#02061022,#020610aa);z-index:1}.scene.uploaded:before{z-index:2}.reel{position:relative}/* =========================================
+CYBERREELS — FIX LETRAS BLANCAS
+Mantiene imágenes, flujos y animaciones
+========================================= */
+
+/* ELIMINAR TEXTO GIGANTE SOBRE LAS FOTOS */
+.scene::before {
+content: none !important;
+display: none !important;
+visibility: hidden !important;
+}
+
+/* CONSERVAR FOTOGRAFÍAS */
+.scene {
+background-size: cover !important;
+background-position: center !important;
+transform: scale(1.02);
+transition: transform 5s linear;
+}
+
+/* CONSERVAR EFECTO DE MOVIMIENTO */
+.reel:hover .scene {
+transform: scale(1.08);
+}
+
+/* MANTENER CAPA OSCURA SOBRE LAS FOTOS */
+.scene::after {
+content: "" !important;
+position: absolute;
+inset: 0;
+z-index: 1;
+background:
+linear-gradient(
+0deg,
+rgba(3,7,13,.95) 0%,
+rgba(3,7,13,.45) 45%,
+rgba(3,7,13,.08) 100%
+),
+linear-gradient(
+90deg,
+rgba(3,7,13,.45),
+transparent 75%
+);
+}
+
+/* MANTENER FLUJOS CI/CD ANIMADOS */
+.motionprocess {
+display: flex !important;
+position: absolute;
+z-index: 2;
+top: 29%;
+left: 5%;
+right: 5%;
+align-items: center;
+gap: 5px;
+overflow: hidden;
+padding: 10px 8px;
+background: rgba(6,16,27,.79);
+border: 1px solid rgba(53,232,255,.33);
+border-radius: 13px;
+backdrop-filter: blur(8px);
+}
+
+/* MANTENER MOVIMIENTO DE LAS ETAPAS */
+.motionstep {
+animation: stepGlow 4.8s infinite;
+animation-delay: calc(var(--n) * .55s);
+}
+
+/* CONSERVAR CONECTORES ANIMADOS */
+.motionconnector {
+animation: connector 1s infinite alternate;
+}
+
+/* MANTENER ARQUITECTURA INTERACTIVA */
+.archboard.open {
+display: block !important;
+}
+
+/* MANTENER PANEL DE FLUJO INTERACTIVO */
+.flowpanel.open {
+display: block !important;
+}
+
+/* MANTENER BOTONES SOBRE LAS FOTOS */
+.actions {
+z-index: 4;
+}
+
+/* MANTENER TÍTULOS Y DESCRIPCIONES */
+.content {
+z-index: 3;
+}
+
+/* MANTENER ETIQUETAS CI/CD */
+.tag {
+z-index: 4;
+}
+
+/* CORRECCIÓN PARA CELULARES */
+@media (max-width: 650px) {
+
+.scene::before {
+    display: none !important;
+    content: none !important;
+}
+
+.motionprocess {
+    top: 31%;
+    left: 3%;
+    right: 3%;
+    gap: 3px;
+    padding: 7px 4px;
+}
+
+.motionstep {
+    padding: 7px 2px;
+    font-size: 7px;
+}
+
+.motionconnector {
+    flex-basis: 4px;
+}
+
+}</style></head><body><header><div class="brand">CYBER<span>REELS</span> / SOCIAL</div><nav id="nav"><button class="active" data-cat="all">Inicio</button><button data-cat="cicd">CI/CD</button><button data-cat="deploy">Deploy</button><button data-cat="cloud">AWS / Azure</button><button data-cat="k8s">Kubernetes</button><button data-cat="security">Cybersecurity</button><button data-cat="observability">Observabilidad</button><button data-cat="automation">Terraform</button></nav></header><main><div class="layout"><aside class="side chat-side"><div class="sidehead"><h2>💬 Cyber Chat</h2><span class="live">● EN VIVO</span></div><div class="chatlog" id="chatlog"><div class="bubble"><b>@pipeline_lab</b>¿Alguien está probando despliegues Blue/Green?</div><div class="bubble"><b>@cloud_ops</b>Validando health checks antes del switch. 🚀</div><div class="bubble"><b>@k8s_lab</b>Rollout estable: 3/3 pods Ready.</div></div><div class="chatquick"><button data-chat="¿Cómo funciona un rollback?">Rollback</button><button data-chat="¿Qué revisar en un pipeline?">Pipeline</button><button data-chat="¿Qué métricas mirar?">Métricas</button></div><form class="chatform" id="chatform"><input id="chatinput" placeholder="Escribe al chat…" maxlength="180" autocomplete="off"><button type="submit">➤</button></form></aside><section class="centercol"><div class="intro"><div><div class="eyebrow">VERTICAL FEED · SWIPE / SCROLL</div><h1>Reels tecnológicos</h1><p>Desplázate hacia abajo dentro del feed para pasar al siguiente Reel.</p></div><button id="reset">↻ Volver al inicio</button></div><section class="imgstudio" aria-label="Generador de imágenes desde texto"><h2>🎨 Cyber Image Generator</h2><p class="sub">Generación real con IA: requiere iniciar el backend y configurar OPENAI_API_KEY. La clave nunca va en el navegador.</p><div class="promptrow"><textarea id="imagePrompt" placeholder="Ej: arquitectura CI/CD en AWS, pipeline animado, Kubernetes, luces cyan y verde, estilo cyberpunk…">Arquitectura CI/CD DevSecOps: Git, Build, Tests, Security Scan, Deploy a Kubernetes. Neon cyberpunk, cyan y verde.</textarea></div><div class="imgcontrols"><select id="imageStyle"><option value="architecture">Arquitectura CI/CD</option><option value="devsecops">DevSecOps</option><option value="kubernetes">Kubernetes</option><option value="cloud">Cloud AWS / Azure</option><option value="poster">Cyberpunk poster</option></select><button id="generateImage">✦ Generar imagen</button></div><div class="genstatus" id="genstatus">Listo para crear · escribe tu prompt</div><div class="imgresult" id="imgresult"><img id="generatedImage" alt="Imagen generada por IA" style="width:100%;display:block;border-radius:9px;max-height:520px;object-fit:contain;background:#050910"><div class="resultbar"><span>GENERADO POR IA · PNG</span><a id="downloadImage" download="cyberreels-image.png" href="#">⬇ Descargar PNG</a></div></div></section><div class="publishbar"><button id="openPublisher" class="publishbtn">＋ PUBLICAR FOTO / REEL</button><span>SUBE IMÁGENES · CREA TU REEL</span></div><section id="feed" aria-label="Feed vertical de reels"></section></section><aside class="side deals-side"><div class="sidehead"><h2>⚡ Ofertas relámpago</h2><span class="live">LAB DEALS</span></div><div class="deal"><div class="dealtype">⚡ FLASH · 15 MIN</div><h3>CI/CD Pipeline Kit</h3><p>Plantilla de pipeline Dev → QA → Prod con jobs build, test, Sonar y deploy.</p><span class="price">$0 demo</span><span class="oldprice">$19</span><div class="timer" data-seconds="899">14:59</div><button class="claim">Obtener recurso</button><div class="dealclaimed"></div></div><div class="deal"><div class="dealtype">⚡ FLASH · COMUNIDAD</div><h3>Kubernetes Quick Lab</h3><p>Checklist de rollout, probes, logs y rollback para practicar en laboratorio.</p><span class="price">Gratis</span><span class="oldprice">$9</span><div class="timer" data-seconds="1199">19:59</div><button class="claim">Activar oferta</button><div class="dealclaimed"></div></div><div class="deal"><div class="dealtype">⚡ BONUS</div><h3>Terraform Starter</h3><p>Guía de plan, variables por ambiente y state remoto.</p><span class="price">Gratis</span><div class="timer" data-seconds="599">09:59</div><button class="claim">Reclamar</button><div class="dealclaimed"></div></div></aside></div></main><footer class="footer"><span>CYBERREELS SOCIAL · CI/CD en movimiento</span><span>Escenarios educativos · imágenes ilustrativas</span></footer><div class="publishmodal" id="publishmodal"><form class="publishbox" id="publishform"><h2>＋ PUBLICAR REEL</h2><p>Sube una o varias fotos y conviértelas en una publicación vertical.</p><input id="postfiles" type="file" accept="image/*" multiple required><div class="publishpreview" id="publishpreview"></div><input id="posttitle" maxlength="100" placeholder="Título del reel" required><textarea id="postdesc" maxlength="500" placeholder="Descripción / detalles de implementación"></textarea><select id="postcat"><option value="cicd">CI/CD</option><option value="deploy">Deploy</option><option value="aws">AWS / Azure</option><option value="kubernetes">Kubernetes</option><option value="security">Cybersecurity</option><option value="observability">Observabilidad</option><option value="terraform">Terraform</option></select><div class="publishactions"><button type="button" id="closePublisher">Cancelar</button><button class="submitpost" type="submit">🚀 Publicar en Reels</button></div></form></div><script>
 const reels=[
 {cat:'cicd',tag:'CI/CD · PIPELINE',title:'De un commit a producción',desc:'GitHub Actions: checkout → build → tests → Sonar → artefacto → release. Si falla una etapa, el pipeline detiene el despliegue.',visual:'COMMIT  →  BUILD\nTEST  →  RELEASE',scene:'cicd',user:'@pipeline_lab',time:'00:58',flow:['Commit','Build','Tests','SAST','Artifact','QA','Approval','Prod'],detail:['Push de código y trigger del workflow.','Compila y construye imagen reproducible.','Ejecuta pruebas unitarias e integración.','SAST, dependencias y secretos: bloquea hallazgos críticos.','Versiona y publica artefacto en registry.','Deploy a staging y smoke tests.','Aprobación manual según política.','Release gradual y health checks.']},
 {cat:'deploy',tag:'DEPLOY · BLUE / GREEN',title:'Blue / Green deployment',desc:'Dos entornos en paralelo. Valida health checks y cambia el tráfico al entorno nuevo; si hay regresión, vuelve al anterior.',visual:'BLUE  ⇄  GREEN\nTRAFFIC SWITCH',scene:'cloud',user:'@release_engineer',time:'00:46',flow:['Build','Blue','Health check','Switch','Green','Rollback'],detail:['Genera la versión candidata.','Entorno actual recibe tráfico.','Valida readiness, errores y latencia.','Router cambia tráfico a nueva versión.','Nueva versión queda activa.','Si falla, vuelve al entorno anterior.']},
