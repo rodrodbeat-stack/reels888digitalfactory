@@ -1196,3 +1196,278 @@ padding:9px 4px;
 }
 
 }
+/* ==========================================
+ CYBERREELS 2050
+ INSTAGRAM REELS / BRUTAL NOISE
+========================================== */
+
+:root{
+ --ig-pink:#ff00a8;
+ --ig-cyan:#00f5ff;
+ --ig-green:#c8ff00;
+}
+
+/* MAIN SOCIAL GRID */
+
+.layout{
+ max-width:1500px;
+ grid-template-columns:230px minmax(0,650px) 260px;
+ justify-content:center;
+ gap:24px;
+}
+
+/* CENTER FEED */
+
+.centercol{
+ min-width:0;
+}
+
+.feed{
+ max-width:650px;
+ margin:auto;
+ gap:25px;
+}
+
+/* STORIES */
+
+.stories{
+ display:flex;
+ gap:15px;
+ overflow-x:auto;
+ padding:15px 5px;
+ margin-bottom:15px;
+ border-bottom:1px solid #552348;
+}
+
+.story{
+ flex:0 0 68px;
+ text-align:center;
+ cursor:pointer;
+}
+
+.story-avatar{
+ width:62px;
+ height:62px;
+ border-radius:50%;
+ padding:3px;
+ border:2px solid var(--ig-pink);
+ box-shadow:0 0 14px #ff00a855;
+ background:#100713;
+}
+
+.story-avatar img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ border-radius:50%;
+}
+
+.story span{
+ display:block;
+ font-size:9px;
+ margin-top:5px;
+ color:#ddd;
+}
+
+/* POSTS */
+
+.reel{
+ border:1px solid #552348;
+ border-radius:5px;
+ background:#0d0710;
+ overflow:hidden;
+}
+
+.reelhead{
+ padding:12px 14px;
+}
+
+.avatar{
+ width:40px;
+ height:40px;
+ border-radius:50%;
+ border:2px solid var(--ig-pink);
+ box-shadow:0 0 12px #ff00a844;
+}
+
+/* MEDIA */
+
+.reel video,
+.reel img{
+ width:100%;
+ max-height:720px;
+ object-fit:contain;
+ background:#030208;
+ display:block;
+}
+
+.scene{
+ height:430px;
+}
+
+/* ACTION BAR */
+
+.actions{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ padding:10px 14px;
+ border-top:1px solid #35172f;
+}
+
+.actions button{
+ background:transparent;
+ border:0;
+ box-shadow:none;
+ font-size:17px;
+ padding:5px;
+ text-transform:none;
+}
+
+.actions button:hover{
+ color:var(--ig-pink);
+ transform:scale(1.12);
+}
+
+.actions .liked{
+ color:var(--ig-pink);
+ text-shadow:0 0 12px var(--ig-pink);
+}
+
+/* POST DESCRIPTION */
+
+.reelbody{
+ padding:5px 14px 14px;
+}
+
+.reelbody h3{
+ font-size:14px;
+}
+
+.reelbody p{
+ font-size:12px;
+ line-height:1.6;
+}
+
+/* PROFILE PANEL */
+
+.social-profile{
+ text-align:center;
+ padding:15px;
+}
+
+.social-profile .avatar{
+ width:75px;
+ height:75px;
+ margin:auto;
+ font-size:22px;
+}
+
+.social-stats{
+ display:flex;
+ justify-content:space-around;
+ margin-top:15px;
+}
+
+.social-stats strong{
+ display:block;
+ color:var(--ig-cyan);
+ font-size:16px;
+}
+
+/* APOCALYPSE DROPS */
+
+.deals-side{
+ position:sticky;
+ top:90px;
+ align-self:start;
+}
+
+.deal{
+ border:1px solid var(--ig-pink);
+ box-shadow:0 0 12px #ff00a822;
+}
+
+.deal img{
+ width:100%;
+ height:130px;
+ object-fit:cover;
+}
+
+/* CHAT */
+
+.chat-side{
+ position:fixed!important;
+ right:20px;
+ bottom:20px;
+ z-index:1000;
+}
+
+/* MOBILE NAVIGATION */
+
+.mobile-nav{
+ display:none;
+}
+
+@media(max-width:760px){
+
+.layout{
+ display:block;
+ padding:10px;
+}
+
+.centercol{
+ width:100%;
+}
+
+.feed{
+ width:100%;
+}
+
+.scene{
+ height:350px;
+}
+
+.deals-side{
+ display:block;
+ margin-top:25px;
+}
+
+.mobile-nav{
+ display:flex;
+ position:fixed;
+ bottom:0;
+ left:0;
+ right:0;
+ height:58px;
+ background:#09040d;
+ border-top:1px solid var(--ig-pink);
+ z-index:900;
+ justify-content:space-around;
+ align-items:center;
+}
+
+.mobile-nav button{
+ background:none;
+ border:0;
+ box-shadow:none;
+ color:var(--ig-cyan);
+ font-size:19px;
+ padding:8px;
+}
+
+.chat-side{
+ bottom:70px;
+ right:10px;
+ width:calc(100% - 20px);
+}
+
+.chat-side.minimized{
+ width:190px;
+}
+
+body{
+ padding-bottom:65px;
+}
+
+}
