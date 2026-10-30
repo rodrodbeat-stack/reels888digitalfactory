@@ -4,6 +4,376 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CYBERREELS | APOCALYPSE NEON</title>
+   /* =====================================================
+   888 DIGITAL FACTORY
+   TERMINATOR APOCALYPSE 2050
+   T-800 / SKYNET INDUSTRIAL INTERFACE
+===================================================== */
+
+:root {
+  --bg:#050607;
+  --panel:#14171b;
+  --panel2:#20242a;
+  --cyan:#aab5c0;
+  --green:#ff2424;
+  --pink:#861019;
+  --red:#ff1717;
+  --line:#515860;
+  --text:#e5e8eb;
+  --muted:#89929b;
+  --metal:#a4abb2;
+}
+
+/* INDUSTRIAL BACKGROUND */
+
+body {
+  background:
+    radial-gradient(ellipse at 50% 0%,#343b43 0%,transparent 42%),
+    radial-gradient(ellipse at 90% 70%,#300609 0%,transparent 35%),
+    linear-gradient(145deg,#030405,#101317 50%,#050506)!important;
+  color:var(--text);
+}
+
+/* SCANLINES */
+
+body:before {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:20;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      #ffffff08 4px
+    );
+  opacity:.3;
+}
+
+/* HEADER */
+
+header {
+  background:linear-gradient(180deg,#252a30,#08090b)!important;
+  border-bottom:2px solid #a71920!important;
+  box-shadow:0 5px 35px #000!important;
+}
+
+.logo {
+  color:#d5dbe0;
+  text-shadow:0 0 12px #aeb8c2;
+}
+
+.logo b {
+  color:#ff2929!important;
+  text-shadow:0 0 15px #ff1717;
+}
+
+.logo small {
+  color:#ff3636!important;
+}
+
+/* METALLIC BUTTONS */
+
+button {
+  background:linear-gradient(145deg,#414850,#111418)!important;
+  border:1px solid #707981!important;
+  color:#e8edf1!important;
+  border-radius:9px!important;
+  box-shadow:
+    inset 0 1px 2px #ffffff25,
+    0 4px 12px #000!important;
+  text-shadow:none!important;
+}
+
+button:hover {
+  border-color:#ff2929!important;
+  box-shadow:0 0 20px #ff171755!important;
+}
+
+button.primary {
+  background:linear-gradient(135deg,#721016,#18090b)!important;
+  border:1px solid #ff3434!important;
+  color:white!important;
+  clip-path:none!important;
+  border-radius:10px!important;
+}
+
+/* INDUSTRIAL PANELS */
+
+.side,
+.panel,
+.reel,
+.modal,
+.publishbar,
+.deal {
+  background:linear-gradient(145deg,#252a30,#0a0c0f)!important;
+  border:1px solid #555e67!important;
+  border-radius:15px!important;
+  box-shadow:
+    inset 0 1px 0 #ffffff12,
+    0 12px 35px #000b!important;
+}
+
+/* HEADINGS */
+
+.side h3,
+.panel h3 {
+  color:#ff3434!important;
+  border-bottom:1px solid #783036!important;
+}
+
+/* TERMINATOR RED SENSOR */
+
+.live {
+  color:#ff2929!important;
+  text-shadow:0 0 12px red;
+  animation:sensor 1.5s infinite alternate;
+}
+
+@keyframes sensor {
+  from {opacity:.5}
+  to {opacity:1;text-shadow:0 0 20px red}
+}
+
+/* INTRO */
+
+.intro h1 {
+  color:#dce1e5;
+  text-shadow:0 3px 20px #000;
+}
+
+.intro h1 span {
+  color:#ff2929!important;
+  text-shadow:0 0 18px #ff171755;
+}
+
+.eyebrow {
+  color:#ff3939!important;
+}
+
+/* CATEGORIES */
+
+.categories button.active {
+  background:linear-gradient(135deg,#701017,#18090b)!important;
+  border-color:#ff3434!important;
+  color:white!important;
+}
+
+/* SOCIAL FEED */
+
+.reel {
+  overflow:hidden;
+  border-radius:17px!important;
+  position:relative;
+  transition:.3s;
+}
+
+.reel:hover {
+  transform:translateY(-3px);
+  border-color:#b72a30!important;
+  box-shadow:0 15px 40px #000!important;
+}
+
+.reelhead {
+  background:linear-gradient(90deg,#252a30,#101215)!important;
+  border-bottom:1px solid #4c535a;
+}
+
+.avatar {
+  border-radius:50%!important;
+  background:radial-gradient(circle,#555f68,#111)!important;
+  color:#ff3434!important;
+  border:2px solid #a2abb3!important;
+}
+
+.tag {
+  color:#ff3434!important;
+  border:1px solid #8c252b!important;
+  border-radius:20px!important;
+}
+
+/* CINEMATIC MEDIA */
+
+.scene {
+  height:420px;
+  background:
+    radial-gradient(circle at 50% 45%,#343a40,#111418 55%,#030405)!important;
+  border-radius:0!important;
+}
+
+.scene:before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 60px,
+      #ffffff09 61px 62px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 60px,
+      #ff171710 61px 62px
+    )!important;
+}
+
+.scene:after {
+  content:"SKYNET SYSTEM // T-800 ACTIVE";
+  color:#ff2929!important;
+  text-shadow:0 0 15px red;
+}
+
+.scenecontent .symbol {
+  color:#ff2929!important;
+  filter:drop-shadow(0 0 15px red);
+  font-size:65px;
+}
+
+/* MEDIA IMAGES */
+
+.reel img,
+.reel video {
+  width:100%;
+  max-height:650px;
+  object-fit:contain;
+  background:#030405;
+}
+
+/* CHAT — FLOATING SOCIAL MODE */
+
+.chat-side {
+  display:flex!important;
+  flex-direction:column;
+  position:fixed!important;
+  z-index:50!important;
+  left:20px;
+  bottom:20px;
+  top:auto!important;
+  width:300px;
+  height:390px;
+  border-radius:18px!important;
+  background:linear-gradient(145deg,#252b31,#090b0e)!important;
+  border:1px solid #8b969f!important;
+  box-shadow:0 10px 40px #000!important;
+  transition:height .3s;
+}
+
+.chatlog {
+  flex:1;
+  height:auto;
+  min-height:0;
+  overflow-y:auto;
+}
+
+.bubble {
+  background:#272d33!important;
+  color:#e3e7ea!important;
+  border-left:3px solid #ff2929!important;
+  border-radius:9px!important;
+}
+
+.bubble.me {
+  background:#3b171a!important;
+  border-left-color:#ff3434!important;
+}
+
+/* CHAT INPUT */
+
+.chatform input {
+  border-radius:20px!important;
+}
+
+/* CONTENT SPACE */
+
+.layout {
+  grid-template-columns:260px minmax(400px,1fr) 260px;
+}
+
+/* MODAL */
+
+.publishmodal {
+  backdrop-filter:blur(12px);
+}
+
+.modal {
+  border:1px solid #a0a8af!important;
+  border-radius:18px!important;
+}
+
+/* APOCALYPSE DROPS */
+
+.deal {
+  border-left:4px solid #ff2929!important;
+}
+
+.deal b {
+  color:#ff3636!important;
+}
+
+/* MOBILE */
+
+@media(max-width:1100px) {
+  .layout {
+    grid-template-columns:1fr;
+  }
+
+  .deals-side {
+    display:none;
+  }
+}
+
+@media(max-width:760px) {
+
+  .layout {
+    display:block;
+    padding:10px;
+  }
+
+  .chat-side {
+    left:10px!important;
+    bottom:10px!important;
+    top:auto!important;
+    width:calc(100% - 20px)!important;
+    max-width:340px;
+    height:300px;
+    display:flex!important;
+  }
+
+  .intro h1 {
+    font-size:29px;
+  }
+
+  .scene {
+    height:300px;
+  }
+
+  .reel {
+    border-radius:14px!important;
+  }
+
+  .publishbar {
+    border-radius:13px!important;
+  }
+}
+
+/* CHAT COLLAPSE */
+
+.chat-side.collapsed {
+  height:52px!important;
+  overflow:hidden;
+}
+
+.chat-side h3 {
+  cursor:pointer;
+  flex-shrink:0;
+}
+
+/* TERMINATOR FINISH */
+
+footer {
+  color:#737d86;
+  letter-spacing:3px;
+}
 /* =====================================================
    CYBERREELS — TERMINATOR / SKYNET 2050
    VISUAL OVERRIDE — NO MODIFICA LAS FUNCIONES JS
