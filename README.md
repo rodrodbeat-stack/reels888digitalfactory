@@ -7,7 +7,7 @@
 ## Ejecutar local
 1. Configura `OPENAI_API_KEY` como variable de entorno. No la pongas en `index.html` ni la subas a GitHub.
 2. En la carpeta del proyecto ejecuta:
-   - macOS/Linux: `export OPENAI_API_KEY="tu_api_key"`
+   - macOS/Linux: `export OPENAI_API_KEY="tu_api_key"`t
    - PowerShell: `$env:OPENAI_API_KEY="tu_api_key"`
 3. `npm start`
 4. Abre `http://localhost:3000`
